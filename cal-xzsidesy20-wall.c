@@ -3,13 +3,17 @@
     cal-xzsidesy20-wall
 
   Description
-
+    Interactive program to approximate the xz deformation distance (wall at y=20) so as to match the density of a bulk system (no walls).
+    Independant on the bond length, only scaling is applied to reach at a better prediction. Three simulation runs are mandatory to match
+    the density of a bulk system (no walls): First run is an equilibrum run, with yhi = 20; second being a run with yhi = 20 and deforming x and z.
+    Third run is with similar settings as the latter, and makes the approximation better.
+    Scaling is independant of most material characterestics, so I guess its safe to work with this code at any chain length.
 
   Keywords
-
+    density, xzdeform, LAMMPS, polymers,
 
   Related
-
+    slabxyt
 
   Author
     gg nov 29 2016
@@ -38,8 +42,8 @@ sa=sqrt(sas); //get x or z  : use -lm for compiling in gcc
 /*searching for match*/
 //double f=(m/(sa*sa*y)); //test-works
 //printf("%.4lf\n", f); //test
-
-printf("Status: 1 or 2?\n 1 - After initial equilibration run with yhi=20\n 2 - Further scaling with xz deform, yhi=20\n");
+Y:
+printf("\nStatus: 1 or 2?\n 1 - After initial equilibration run with yhi=20\n 2 - Further scaling with xz deform, yhi=20\n");
 scanf("%d", &choice);
 if (choice==1)
 {
@@ -69,7 +73,8 @@ if (choice==1)
 }
 if (choice==2) {
   int ch;
-  printf("Choose 1 or 2: \n 1 - Manual entry of hi(x,z) deform position\n 2 - Use initial prediction by program\n");
+  X:
+  printf("\nChoose 1 or 2: \n 1 - Manual entry of hi(x,z) deform position\n 2 - Use initial prediction by program\n");
   scanf("%d", &ch);
   if (ch==1) {  //maual entry of first prediction that you used - useful in cases where we went badass and decided a diff value
     printf("Enter the previous approximation used for the 'xz deform yhi=20' run:\n");
@@ -98,13 +103,15 @@ if (choice==2) {
     return 0;
   }
   else {
-    printf("Invalid option");
+    printf("Invalid option\n");
+    goto X;
     return 0;
   }
 } //end of choice 2 loop
 
 else {
   printf("Invalid option\n");
+  goto Y;
   return 0;
 }
 return 0;
