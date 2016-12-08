@@ -19,7 +19,7 @@
     slabxyt
 
   Author
-    gg nov 29 2016
+    gg dec 8 2016
 */
 #include <stdio.h>
 #include <math.h> //gcc test.c -o test -lm
@@ -27,7 +27,7 @@
 int main() {
 double sas, sa, sa2, m, y=20.0, va, v, paim, pr, pdr, xa1, xa2, xa3, pdr1, pdr2; //y set at 20
 int choice, hit=0;
-printf("[Read Description]\n");
+printf("[See input format by running './cal-xzsidesy20-wall' without quotes]\n");
 printf("Enter nof particles (atoms):\n");
 scanf("%lf", &m); //normally 16*384=6144
 printf("Enter the density obtained from slabxyt (after fit [5:14]) for equilibration run, wall @ yhi=20:\n");
