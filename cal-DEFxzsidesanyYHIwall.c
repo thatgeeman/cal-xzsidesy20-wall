@@ -26,7 +26,7 @@
 #include <math.h> //gcc test.c -o test -lm
 #include <stdlib.h>
 int main() {
-double sas, sa, sa2, m, y, va, v, paim, pr, pdr
+double sas, sa, sa2, m, y, va, v, paim, pr, pdr;
 double xa1, xa2, xa3, pdr1, pdr2;
 double x,z;
 int choice, hit=0;
@@ -51,7 +51,7 @@ sa=sqrt(sas); //get x or z  : use -lm for compiling in gcc
 //double f=(m/(sa*sa*y)); //test-works
 //printf("%.4lf\n", f); //test
 Y:
-printf("\n .. status: 1 or 2?\n 1 - After initial equilibration run with yhi %lf\n 2 - Further scaling with xz deform, yhi %lf 20 in comparison to equilib run\n", y, y);
+printf("\n .. status: 1 or 2?\n 1 - after initial equilibration run with yhi %lf\n 2 - further scaling with xz deform, yhi %lf in comparison to equilib run\n", y, y);
 scanf("%d", &choice);
 if (choice==1)
 {
@@ -66,9 +66,9 @@ if (choice==1)
     }
   }    
   if(hit==1) {
-  printf("\nFirst prediction: use x side as %.4lf\n", sa);
-  printf("PS. Rem: x = z, deform equally. Fix y=%lf. \n", y);
-  printf("Use option 2 after doing slabxyt for this 'xz deform =%.4lf, yhi = %lf' system to optimize\n", sa, y);
+  printf("\nFirst prediction: use x and z side as %.4lf\n", sa);
+  printf("deform xz equally to %lf, fix y=%lf. \n", sa, y);
+  printf("rerun program with option 2 after doing slabxyt for this 'xz deform =%.4lf, yhi = %lf' system to optimize\n", sa, y);
   return 0;
   }
   if(hit==0) 
@@ -82,7 +82,7 @@ if (choice==2)
 {
   int ch;
   X:
-  printf("\nChoose 1 or 2: \n 1 - Manual entry of hi(x,z) deform position\n 2 - Use initial prediction by program\n 3 - Compare two deformation (defxz, yhi %lf) runs and scale\n", y);
+  printf("\nChoose 1 or 2: \n 1 - manual entry of hi (x,z) deform position\n 2 - use initial prediction by program\n 3 - Compare two deformation (defxz, yhi %lf) runs and scale (independant of equilib run)\n", y);
   scanf("%d", &ch);
   if (ch==1) 
   {  //maual entry of first prediction that you used - useful in cases where we went badass and decided a diff value
