@@ -33,9 +33,9 @@ int choice, hit=0;
 printf("[red description] ~not harmful\n");
 printf("enter nof particles (atoms):\n");
 scanf("%lf", &m); //normally nch*ncl
-printf("enter yhi used for equilib run with wall");
+printf("enter yhi used for equilib run with wall\n");
 scanf("%lf",&y);
-printf("enter x and z used for equilib run with wall");
+printf("enter x and z used for equilib run with wall\n");
 scanf("%lf %lf",&x, &z);
 printf("Enter the density obtained from slabxyt (after fit [5:14]) for equilibration run, wall @ yhi:%lf\n", y);
 scanf("%lf", &pr); //scanning double requires %lf; equilibrum run had all sides at 20,20,20
