@@ -55,9 +55,9 @@ printf("\n .. status: 1 or 2?\n 1 - after initial equilibration run with yhi %lf
 scanf("%d", &choice);
 if (choice==1)
 {
-  for(i=(y/2);i<=sa;i+=0.00000000000001) 
+  for(i=(y/2);i<=sa;i+=0.0001) 
   { //weird for loop
-    if (((m/(i*i*y))-paim)<=0.00000000000001) 
+    if (((m/(i*i*y))-paim)<=0.0001) 
     {     //precision control
       sa=i;//update x or z with the find
       hit++;
