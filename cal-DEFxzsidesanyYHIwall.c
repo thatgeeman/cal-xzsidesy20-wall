@@ -161,18 +161,20 @@ else
 if (repl==0)
 {
 int nrepl, nch2, chl2, m2;
-
+double rhop2;
 printf("Enter planned no of Replication along one dim:\n");
 scanf("%d", &nrepl);
 printf("Enter nchains in minimized case:\n");
 scanf("%d", &nch2);
 printf("Enter ch length in minimized case\n");
 scanf("%d", &chl2);
+printf("Enter average density in bulk for full case\n");
+scanf("%lf", &rhop2);
 m2=nch2*chl2;
 /*calculation*/
 double i; //search from midpoint
 ptaim=m/v; //bulk density = aim
-paim=ptaim/nrepl;
+paim=rhop2/nrepl;
 va=m2/pr; //apparent volume pr is dens from wall case equilib
 sas=va/y; //product of apparent xz is sas
 sa=sqrt(sas); //get x or z  : use -lm for compiling in gcc
